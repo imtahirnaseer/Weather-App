@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Ultra-Realistic Weather Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ultra-Realistic Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-atmosphere">
+            <div class="loading-sky"></div>
+            <div class="loading-clouds">
+                <div class="loading-cloud loading-cloud-1"></div>
+                <div class="loading-cloud loading-cloud-2"></div>
+                <div class="loading-cloud loading-cloud-3"></div>
+            </div>
+            <div class="loading-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-sphere">
+                    <div class="sphere-inner"></div>
+                    <div class="sphere-glow"></div>
+                </div>
+                <div class="logo-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+            </div>
+            <h1 class="loading-title">Weather App</h1>
+            <p class="loading-subtitle">Initializing atmospheric simulation...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+                <div class="progress-glow"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Ultra-Realistic 3D Scene Container -->
+        <div class="scene-3d" id="scene-3d">
+            <!-- Atmospheric Layers -->
+            <div class="atmosphere-layer atmosphere-far"></div>
+            <div class="atmosphere-layer atmosphere-mid"></div>
+            <div class="atmosphere-layer atmosphere-near"></div>
+            
+            <!-- Sky Dome -->
+            <div class="sky-dome" id="sky-dome">
+                <div class="sky-gradient" id="sky-gradient"></div>
+                <div class="sky-texture"></div>
+                <div class="sky-clouds-layer">
+                    <div class="volumetric-cloud cloud-layer-1"></div>
+                    <div class="volumetric-cloud cloud-layer-2"></div>
+                    <div class="volumetric-cloud cloud-layer-3"></div>
+                    <div class="volumetric-cloud cloud-layer-4"></div>
+                </div>
+            </div>
+
+            <!-- Celestial Bodies -->
+            <div class="celestial-container" id="celestial-container">
+                <!-- Ultra-Realistic Sun -->
+                <div class="sun-system" id="sun-system">
+                    <div class="sun-corona"></div>
+                    <div class="sun-core">
+                        <div class="sun-surface"></div>
+                        <div class="sun-flares">
+                            <div class="solar-flare flare-1"></div>
+                            <div class="solar-flare flare-2"></div>
+                            <div class="solar-flare flare-3"></div>
+                            <div class="solar-flare flare-4"></div>
+                        </div>
+                    </div>
+                    <div class="sun-rays-system">
+                        <div class="sun-ray ray-1"></div>
+                        <div class="sun-ray ray-2"></div>
+                        <div class="sun-ray ray-3"></div>
+                        <div class="sun-ray ray-4"></div>
+                        <div class="sun-ray ray-5"></div>
+                        <div class="sun-ray ray-6"></div>
+                        <div class="sun-ray ray-7"></div>
+                        <div class="sun-ray ray-8"></div>
+                    </div>
+                    <div class="sun-atmosphere"></div>
+                </div>
+
+                <!-- Ultra-Realistic Moon -->
+                <div class="moon-system" id="moon-system">
+                    <div class="moon-halo"></div>
+                    <div class="moon-body">
+                        <div class="moon-surface">
+                            <div class="crater crater-1"></div>
+                            <div class="crater crater-2"></div>
+                            <div class="crater crater-3"></div>
+                            <div class="crater crater-4"></div>
+                            <div class="crater crater-5"></div>
+                        </div>
+                        <div class="moon-shadow"></div>
+                        <div class="moon-glow"></div>
+                    </div>
+                    <div class="moonlight-rays">
+                        <div class="moonlight-ray ray-1"></div>
+                        <div class="moonlight-ray ray-2"></div>
+                        <div class="moonlight-ray ray-3"></div>
+                    </div>
+                </div>
+
+                <!-- Star Field -->
+                <div class="star-field" id="star-field">
+                    <div class="constellation constellation-1">
+                        <div class="star star-bright"></div>
+                        <div class="star star-medium"></div>
+                        <div class="star star-dim"></div>
+                        <div class="star star-bright"></div>
+                        <div class="star star-medium"></div>
+                    </div>
+                    <div class="constellation constellation-2">
+                        <div class="star star-medium"></div>
+                        <div class="star star-bright"></div>
+                        <div class="star star-dim"></div>
+                        <div class="star star-medium"></div>
+                    </div>
+                    <div class="milky-way"></div>
+                    <div class="shooting-stars">
+                        <div class="shooting-star"></div>
+                        <div class="shooting-star"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Effects System -->
+            <div class="weather-system" id="weather-system">
+                <!-- Advanced Rain System -->
+                <div class="rain-system" id="rain-system">
+                    <div class="rain-layer rain-far">
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                    </div>
+                    <div class="rain-layer rain-mid">
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                    </div>
+                    <div class="rain-layer rain-near">
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                    </div>
+                    <div class="rain-splash-layer">
+                        <div class="rain-splash"></div>
+                        <div class="rain-splash"></div>
+                        <div class="rain-splash"></div>
+                    </div>
+                </div>
+
+                <!-- Advanced Snow System -->
+                <div class="snow-system" id="snow-system">
+                    <div class="snow-layer snow-far">
+                        <div class="snowflake snowflake-large">❄</div>
+                        <div class="snowflake snowflake-medium">❅</div>
+                        <div class="snowflake snowflake-small">❄</div>
+                        <div class="snowflake snowflake-large">❅</div>
+                        <div class="snowflake snowflake-medium">❄</div>
+                    </div>
+                    <div class="snow-layer snow-mid">
+                        <div class="snowflake snowflake-medium">❅</div>
+                        <div class="snowflake snowflake-large">❄</div>
+                        <div class="snowflake snowflake-small">❅</div>
+                        <div class="snowflake snowflake-medium">❄</div>
+                        <div class="snowflake snowflake-large">❅</div>
+                    </div>
+                    <div class="snow-layer snow-near">
+                        <div class="snowflake snowflake-large">❄</div>
+                        <div class="snowflake snowflake-medium">❅</div>
+                        <div class="snowflake snowflake-large">❄</div>
+                        <div class="snowflake snowflake-medium">❅</div>
+                        <div class="snowflake snowflake-small">❄</div>
+                    </div>
+                </div>
+
+                <!-- Lightning System -->
+                <div class="lightning-system" id="lightning-system">
+                    <div class="lightning-bolt bolt-1"></div>
+                    <div class="lightning-bolt bolt-2"></div>
+                    <div class="lightning-flash"></div>
+                </div>
+
+                <!-- Fog System -->
+                <div class="fog-system" id="fog-system">
+                    <div class="fog-layer fog-1"></div>
+                    <div class="fog-layer fog-2"></div>
+                    <div class="fog-layer fog-3"></div>
+                </div>
+            </div>
+
+            <!-- Ultra-Realistic City -->
+            <div class="city-3d" id="city-3d">
+                <!-- Background Mountains -->
+                <div class="mountain-range">
+                    <svg class="mountains" viewBox="0 0 1200 400" preserveAspectRatio="xMidYEnd slice">
+                        <defs>
+                            <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4a5568;stop-opacity:0.8"/>
+                                <stop offset="100%" style="stop-color:#2d3748;stop-opacity:0.9"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,400 L200,150 L400,200 L600,100 L800,180 L1000,120 L1200,160 L1200,400 Z" fill="url(#mountainGradient)"/>
+                        <path d="M0,400 L150,200 L350,250 L550,150 L750,220 L950,170 L1200,200 L1200,400 Z" fill="url(#mountainGradient)" opacity="0.6"/>
+                    </svg>
+                </div>
+
+                <!-- Detailed City Skyline -->
+                <div class="skyline-3d">
+                    <svg class="city-skyline" viewBox="0 0 1200 600" preserveAspectRatio="xMidYEnd slice">
+                        <defs>
+                            <!-- Building Gradients -->
+                            <linearGradient id="buildingGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#2d3748"/>
+                                <stop offset="50%" style="stop-color:#4a5568"/>
+                                <stop offset="100%" style="stop-color:#1a202c"/>
+                            </linearGradient>
+                            <linearGradient id="buildingGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#4a5568"/>
+                                <stop offset="50%" style="stop-color:#718096"/>
+                                <stop offset="100%" style="stop-color:#2d3748"/>
+                            </linearGradient>
+                            <!-- Glass Reflection Gradient -->
+                            <linearGradient id="glassReflection" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#63b3ed;stop-opacity:0.3"/>
+                                <stop offset="50%" style="stop-color:#4299e1;stop-opacity:0.1"/>
+                                <stop offset="100%" style="stop-color:#3182ce;stop-opacity:0.2"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Background Buildings -->
+                        <g class="building-layer bg-buildings" opacity="0.4">
+                            <rect x="50" y="300" width="60" height="300" fill="url(#buildingGradient1)"/>
+                            <rect x="130" y="250" width="45" height="350" fill="url(#buildingGradient2)"/>
+                            <rect x="200" y="280" width="55" height="320" fill="url(#buildingGradient1)"/>
+                            <rect x="280" y="200" width="70" height="400" fill="url(#buildingGradient2)"/>
+                            <rect x="370" y="260" width="50" height="340" fill="url(#buildingGradient1)"/>
+                        </g>
+
+                        <!-- Mid Buildings -->
+                        <g class="building-layer mid-buildings" opacity="0.7">
+                            <rect x="450" y="150" width="80" height="450" fill="url(#buildingGradient1)"/>
+                            <rect x="550" y="180" width="65" height="420" fill="url(#buildingGradient2)"/>
+                            <rect x="640" y="120" width="75" height="480" fill="url(#buildingGradient1)"/>
+                            <rect x="740" y="200" width="60" height="400" fill="url(#buildingGradient2)"/>
+                            <rect x="820" y="100" width="85" height="500" fill="url(#buildingGradient1)"/>
+                        </g>
+
+                        <!-- Foreground Buildings -->
+                        <g class="building-layer fg-buildings">
+                            <!-- Burj Khalifa Inspired -->
+                            <polygon points="950,50 960,50 970,60 975,70 975,600 945,600 945,70" fill="url(#buildingGradient1)"/>
+                            <rect x="948" y="60" width="24" height="8" fill="url(#glassReflection)"/>
+                            <rect x="948" y="80" width="24" height="8" fill="url(#glassReflection)"/>
+                            <rect x="948" y="100" width="24" height="8" fill="url(#glassReflection)"/>
+                            
+                            <!-- Modern Glass Tower -->
+                            <rect x="1000" y="120" width="70" height="480" fill="url(#buildingGradient2)"/>
+                            <rect x="1005" y="125" width="60" height="470" fill="url(#glassReflection)"/>
+                            
+                            <!-- Classic Skyscraper -->
+                            <rect x="1100" y="180" width="55" height="420" fill="url(#buildingGradient1)"/>
+                            <rect x="1105" y="185" width="45" height="410" fill="url(#glassReflection)"/>
+                        </g>
+
+                        <!-- Building Windows System -->
+                        <g class="building-windows" id="building-windows">
+                            <!-- Animated Windows -->
+                            <rect x="455" y="160" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="470" y="160" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="485" y="160" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="500" y="160" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="515" y="160" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            
+                            <rect x="455" y="180" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="470" y="180" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="485" y="180" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="500" y="180" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="515" y="180" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            
+                            <rect x="555" y="190" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="570" y="190" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="585" y="190" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="600" y="190" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            
+                            <rect x="645" y="130" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="660" y="130" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="675" y="130" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="690" y="130" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                            <rect x="705" y="130" width="8" height="12" fill="#FFE135" opacity="0" class="window"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Realistic Ground and Nature -->
+                <div class="ground-3d">
+                    <div class="terrain-layer terrain-grass"></div>
+                    <div class="terrain-layer terrain-paths"></div>
+                    <div class="water-features">
+                        <div class="river">
+                            <div class="water-surface"></div>
+                            <div class="water-ripples">
+                                <div class="ripple ripple-1"></div>
+                                <div class="ripple ripple-2"></div>
+                                <div class="ripple ripple-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Realistic Trees -->
+                    <div class="forest-3d">
+                        <div class="tree tree-oak tree-1">
+                            <div class="tree-trunk"></div>
+                            <div class="tree-canopy">
+                                <div class="leaf-cluster cluster-1"></div>
+                                <div class="leaf-cluster cluster-2"></div>
+                                <div class="leaf-cluster cluster-3"></div>
+                                <div class="leaf-cluster cluster-4"></div>
+                            </div>
+                            <div class="tree-shadow"></div>
+                        </div>
+                        
+                        <div class="tree tree-pine tree-2">
+                            <div class="tree-trunk"></div>
+                            <div class="pine-layers">
+                                <div class="pine-layer layer-1"></div>
+                                <div class="pine-layer layer-2"></div>
+                                <div class="pine-layer layer-3"></div>
+                                <div class="pine-layer layer-4"></div>
+                            </div>
+                            <div class="tree-shadow"></div>
+                        </div>
+                        
+                        <div class="tree tree-oak tree-3">
+                            <div class="tree-trunk"></div>
+                            <div class="tree-canopy">
+                                <div class="leaf-cluster cluster-1"></div>
+                                <div class="leaf-cluster cluster-2"></div>
+                                <div class="leaf-cluster cluster-3"></div>
+                            </div>
+                            <div class="tree-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atmospheric Particles -->
+            <div class="particle-system" id="particle-system">
+                <div class="dust-particles">
+                    <div class="dust-mote"></div>
+                    <div class="dust-mote"></div>
+                    <div class="dust-mote"></div>
+                    <div class="dust-mote"></div>
+                    <div class="dust-mote"></div>
+                </div>
+                <div class="pollen-particles">
+                    <div class="pollen"></div>
+                    <div class="pollen"></div>
+                    <div class="pollen"></div>
+                </div>
+                <div class="light-rays" id="light-rays">
+                    <div class="god-ray ray-1"></div>
+                    <div class="god-ray ray-2"></div>
+                    <div class="god-ray ray-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ultra-Modern Glass UI -->
+        <header class="header-glass">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo-3d">
+                        <div class="logo-sphere-3d">
+                            <div class="sphere-core"></div>
+                            <div class="sphere-atmosphere"></div>
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="app-title-3d">Weather App</h1>
+                            <p class="app-subtitle-3d">Ultra-Realistic Weather Experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="controls-3d">
+                        <button class="control-btn day-night-btn" id="day-night-toggle">
+                            <div class="btn-3d-surface">
+                                <div class="btn-icon-container">
+                                    <svg class="sun-icon-3d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="5"/>
+                                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                                    </svg>
+                                    <svg class="moon-icon-3d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <button class="control-btn temp-unit-btn" id="temp-unit-toggle">
+                            <div class="btn-3d-surface">
+                                <span class="unit-display" id="unit-display">°C</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content with Glass Morphism -->
+        <main class="main-3d">
+            <div class="container">
+                <!-- Advanced Search Interface -->
+                <div class="search-3d">
+                    <div class="search-glass-card">
+                        <form id="search-form" class="search-form-3d">
+                            <div class="search-input-3d">
+                                <div class="input-glow"></div>
+                                <svg class="search-icon-3d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="m21 21-4.35-4.35"/>
+                                </svg>
+                                <input type="text" id="search-input" placeholder="Search for any location..." class="search-field-3d">
+                                <div class="input-ripple"></div>
+                            </div>
+                            
+                            <div class="search-actions-3d">
+                                <button type="submit" class="action-btn search-btn-3d" id="search-btn">
+                                    <div class="btn-3d-surface">
+                                        <svg class="btn-icon-3d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="11" cy="11" r="8"/>
+                                            <path d="m21 21-4.35-4.35"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                                
+                                <button type="button" class="action-btn location-btn-3d" id="location-btn">
+                                    <div class="btn-3d-surface">
+                                        <svg class="btn-icon-3d" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Weather Content Grid -->
+                <div class="weather-grid-3d">
+                    <!-- Current Weather Card -->
+                    <div class="weather-card-3d current-weather-3d" id="current-weather">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
+
+                    <!-- Forecast Card -->
+                    <div class="weather-card-3d forecast-3d" id="forecast">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
+
+                    <!-- Details Sidebar -->
+                    <div class="weather-card-3d details-3d" id="weather-details">
+                        <!-- Content will be dynamically inserted -->
+                    </div>
+                </div>
+
+                <!-- Error Display -->
+                <div id="error-message" class="error-3d hidden">
+                    <div class="error-glass-card">
+                        <div class="error-icon-3d">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3 class="error-title-3d">Connection Error</h3>
+                        <p class="error-text-3d" id="error-text"></p>
+                        <button class="error-retry-3d" id="error-retry-btn">
+                            <div class="btn-3d-surface">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                                    <path d="M21 3v5h-5"/>
+                                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                                    <path d="M3 21v-5h5"/>
+                                </svg>
+                                Retry Connection
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
