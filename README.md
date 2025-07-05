@@ -1,4 +1,4 @@
-# WeatherPro - Ultra-Realistic 3D Weather Experience
+# Weather App - Ultra-Realistic 3D Weather Experience
 
 A breathtaking, photorealistic weather application featuring advanced 3D atmospheric simulation, cinematic visual effects, and ultra-modern glass morphism UI design. Experience weather data like never before with realistic day/night cycles, dynamic weather effects, and immersive environmental storytelling.
 
